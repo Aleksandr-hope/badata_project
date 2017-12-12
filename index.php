@@ -19,7 +19,10 @@
 
     <section class="MainContainer">
       <div class="centerAlign">
-        
+        <div id="floating-panel">
+          <input onclick="addMarkersToList();" type=button value="Add Markers">
+          <input onclick="deleteMarkers();" type=button value="Clear Map">
+        </div>
         <div id="map"></div>
 
       </div>
