@@ -25,9 +25,12 @@
         </div>
         <div id="map"></div>
 
+        <div class="marker_table">
+          <?php include_once 'src/initial_table.php'; ?>
+        </div>
       </div>
     </section>
-    
+
     <!--SCRIPTS-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTQQTxbCDb8lTTzJY_URNaQKdl82qKfI&callback=initMap" async defer></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>

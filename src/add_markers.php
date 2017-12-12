@@ -17,11 +17,12 @@ if (isset($_POST['markers'])) {
 } else {
   echo geo_output('data', 'Bad query');
 }
+R::close();
 
 function add_marker_to_db($marker) {
   $geometka = R::dispense('geometka');
   $geometka->lat = $marker['lat'];
-  $geometka->len = $marker['lat'];
+  $geometka->len = $marker['len'];
 
   R::store($geometka);
 }
