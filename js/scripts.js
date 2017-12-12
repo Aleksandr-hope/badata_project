@@ -40,6 +40,7 @@ function setMapOnAll(map) {
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers() {
   clearMarkers();
+  markers = [];
 }
 
 // Removes the markers from the map, but keeps them in the array.
@@ -48,6 +49,22 @@ function clearMarkers() {
 }
 
 // Add current markers to the list
-function addMarkersToList(){
-  
+function addMarkersToList() {
+  var data = [];
+  if (markers.length !== 0) {
+    $.each(markers, function (index, value) {
+      data[index] = {lat: value.getPosition().lat(), lng: value.getPosition().lng()};
+    });
+
+    $.ajax({
+      url: "src/add_markers.php",
+      type: "post",
+      dataType: 'json',
+      data: {"markers": data},
+      success: function (result) {
+        console.log(result.data);
+      }
+    });
+  }
+
 }
