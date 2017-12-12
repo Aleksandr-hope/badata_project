@@ -34,13 +34,16 @@
             <div class="del_but">
               <input onclick="remMarkersList();" type="button" name="delete" value="Удалить выбраные метки" disabled>
             </div>
+            <div class="distance_but">
+              <input onclick="distanceButton();" type="button" name="distance" value="Определить дистанцию" disabled>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!--SCRIPTS-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTQQTxbCDb8lTTzJY_URNaQKdl82qKfI&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTQQTxbCDb8lTTzJY_URNaQKdl82qKfI" async defer></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>

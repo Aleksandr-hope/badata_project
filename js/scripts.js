@@ -1,7 +1,7 @@
 var map;
 var markers = [];
 
-function initMap() {
+window.onload = function() {
   var initMarker = {lat: 50.450721, lng: 30.522986};
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {
