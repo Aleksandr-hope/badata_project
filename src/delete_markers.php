@@ -6,6 +6,7 @@ R::setup('mysql:host=127.0.0.1;dbname=badata_geo', 'root', '');
 if (!R::testConnection()) {
   exit('No connection to DB.');
 }
+R::freeze( TRUE );
 
 if (isset($_POST['del_markers'])) {
   $ids = $_POST['del_markers'];
