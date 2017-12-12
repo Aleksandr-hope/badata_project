@@ -57,12 +57,16 @@ function addMarkersToList() {
     });
 
     $.ajax({
-      url: "src/add_markers.php",
-      type: "post",
+      type: 'POST',
+      url: 'src/add_markers.php',
       dataType: 'json',
       data: {"markers": data},
       success: function (result) {
-        console.log(result.data);
+        console.log('added succesfuly' + result.data);
+        deleteMarkers();
+      },
+      error: function () {
+        console.log('error');
       }
     });
   }

@@ -26,6 +26,7 @@
         <div id="map"></div>
 
         <div class="marker_table">
+          <p class="table_title">Список геометок</p>
           <?php include_once 'src/initial_table.php'; ?>
         </div>
       </div>
