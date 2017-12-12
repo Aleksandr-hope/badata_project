@@ -62,7 +62,7 @@ function addMarkersToList() {
       dataType: 'json',
       data: {"markers": data},
       success: function (result) {
-        console.log('added succesfuly' + result.data);
+        $('.marker_table').append(result.data);
         deleteMarkers();
       },
       error: function () {
