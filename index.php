@@ -25,9 +25,16 @@
         </div>
         <div id="map"></div>
 
-        <div class="marker_table">
+        <div class="marker_block">
           <p class="table_title">Список геометок</p>
-          <?php include_once 'src/initial_table.php'; ?>
+          <div class="marker_table" id="marker_tab">
+            <?php include_once 'src/initial_table.php'; ?>
+          </div>
+          <div id="table_buttons">
+            <div class="del_but">
+              <input onclick="remMarkersList();" type="button" name="delete" value="Удалить выбраные метки" disabled>
+            </div>
+          </div>
         </div>
       </div>
     </section>
