@@ -36,6 +36,7 @@
             </div>
             <div class="distance_but">
               <input onclick="distanceButton();" type="button" name="distance" value="Определить дистанцию" disabled>
+              <input type="text" name="dist_value" value="" disabled>
             </div>
           </div>
         </div>

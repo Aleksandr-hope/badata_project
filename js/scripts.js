@@ -1,7 +1,7 @@
 var map;
 var markers = [];
 
-window.onload = function() {
+window.onload = function () {
   var initMarker = {lat: 50.450721, lng: 30.522986};
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {
@@ -94,13 +94,59 @@ function remMarkersList() {
       dataType: 'json',
       data: {"del_markers": arr},
       success: function (result) {
-        $.each(JSON.parse(result.deleted), function(index, value){
+        $.each(JSON.parse(result.deleted), function (index, value) {
           $('#marker_tab #' + value).remove();
         });
+        $('#table_buttons .del_but input').prop('disabled', true);
+        toggleDistButton();
       },
       error: function () {
         console.log('error');
       }
     });
+  }
+}
+//Toggle distance button disable attr
+function toggleDistButton() {
+  if ($('#marker_tab input:radio[name="original"]:checked').length > 0 && $('#marker_tab input:radio[name="destination"]:checked').length > 0) {
+    $('#table_buttons .distance_but input[name="distance"]').prop('disabled', false);
+  } else {
+    $('#table_buttons .distance_but input[name="distance"]').prop('disabled', true);
+  }
+}
+;
+//Request and output distance
+function distanceButton() {
+  if (($('#marker_tab input:radio[name="original"]:checked').length > 0) &&
+          ($('#marker_tab input:radio[name="destination"]:checked').length > 0)) {
+//    console.log($('#marker_tab input:radio[name="original"]:checked'));
+//    console.log($('#marker_tab input:radio[name="destination"]:checked'));
+    var orig_lat = $('#marker_tab input:radio[name="original"]:checked').siblings('.lat').text();
+    var orig_lng = $('#marker_tab input:radio[name="original"]:checked').siblings('.lng').text();
+    var dest_lat = $('#marker_tab input:radio[name="destination"]:checked').siblings('.lat').text();
+    var dest_lng = $('#marker_tab input:radio[name="destination"]:checked').siblings('.lng').text();
+    distanceRequest(orig_lat, orig_lng, dest_lat, dest_lng);
+  } else {
+    $('#table_buttons .distance_but input[name="dist_value"]').val('');
+  }
+}
+//Google Distance Matrix request
+function distanceRequest(orig_lat, orig_lng, dest_lat, dest_lng) {
+  var origin1 = new google.maps.LatLng(orig_lat, orig_lng);
+  var destination1 = new google.maps.LatLng(dest_lat, dest_lng);
+  var service = new google.maps.DistanceMatrixService();
+  service.getDistanceMatrix(
+          {
+            origins: [origin1],
+            destinations: [destination1],
+            travelMode: 'DRIVING'
+          }, distanceCallback);
+}
+//Callback for request
+function distanceCallback(response, status) {
+  if (status !== 'OK') {
+    alert('Error was: ' + status);
+  } else {
+    $('#table_buttons .distance_but input[name="dist_value"]').val(response.rows["0"].elements["0"].distance.text);
   }
 }
