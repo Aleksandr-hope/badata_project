@@ -1,0 +1,21 @@
+#map {
+  height: 500px;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+h1{
+  text-align: center;
+}
+.MainContainer{
+  height: 100%;
+}
+.centerAlign{
+  width: 1000px;
+  display: block;
+  margin: 0px auto;
+  height: 100%;
+}
