@@ -3,7 +3,7 @@
   <head>
     <title>MyWorkbench</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="Test for BAData">
     <!--CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -12,31 +12,41 @@
   </head>
   <body>
     <header>
-      <div class="centerAlign">
+      <div class="container">
         <h1>Welcome to MyWorkbench!</h1>
       </div>
     </header>
 
     <section class="MainContainer">
-      <div class="centerAlign">
+      <div class="geometka_block container">
         <div id="floating-panel">
-          <input onclick="addMarkersToList();" type=button value="Add Markers">
-          <input onclick="deleteMarkers();" type=button value="Clear Map">
+          <input onclick="addMarkersToList();" type=button value="Add Markers" class="btn btn-light">
+          <input onclick="deleteMarkers();" type=button value="Clear Map" class="btn btn-light">
         </div>
         <div id="map"></div>
 
         <div class="marker_block">
-          <p class="table_title">Список геометок</p>
-          <div class="marker_table" id="marker_tab">
+          <table class="marker_table table table-striped" id="marker_tab">
+            <caption class="table_title">Список геометок</caption>
+            <thead>
+              <tr>
+                <th>Координаты</th>
+                <th>Отправление</th>
+                <th>Прибытие</th>
+                <th>Удалить</th>
+              </tr>
+            </thead>
+            <tbody>
             <?php include_once 'src/initial_table.php'; ?>
-          </div>
+            </tbody>
+          </table>
           <div id="table_buttons">
-            <div class="del_but">
-              <input onclick="remMarkersList();" type="button" name="delete" value="Удалить выбраные метки" disabled>
+            <div class="distance_but input-group">
+              <input onclick="distanceButton();" type="button" name="distance" value="Определить дистанцию"  class="btn btn-light" disabled>
+              <input type="text" class="form-control" name="dist_value" value="" disabled>
             </div>
-            <div class="distance_but">
-              <input onclick="distanceButton();" type="button" name="distance" value="Определить дистанцию" disabled>
-              <input type="text" name="dist_value" value="" disabled>
+            <div class="del_but input-group">
+              <input onclick="remMarkersList();" type="button" name="delete" value="Удалить выбраные метки" class="btn btn-light" disabled>
             </div>
           </div>
         </div>

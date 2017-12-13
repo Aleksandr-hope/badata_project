@@ -9,9 +9,9 @@ html, body {
 h1{
   text-align: center;
 }
-.MainContainer{
+/*.MainContainer{
   height: 100%;
-}
+}*/
 .centerAlign{
   width: 1000px;
   display: block;
@@ -20,19 +20,51 @@ h1{
 }
 #floating-panel {
   position: absolute;
-  top: 64px;
-  left: 43%;
+  top: 2%;
+  left: 40%;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
-  border: 1px solid #999;
+  /*border: 1px solid #999;*/
   text-align: center;
-  font-family: 'Roboto','sans-serif';
+  /*font-family: 'Roboto','sans-serif';*/
   font-size: 14px;
+}
+.marker_block{
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.marker_table{
+  margin-bottom: 20px;
+}
+.marker_table .marker_elem input{
+  
 }
 .marker_table>span{
   display: block;
 }
-.marker_table>span p{
+.marker_table .latlng span{
   display: inline-block;
+}
+.marker_table .latlng span.delimiter{
+  margin-right: 3px;
+}
+.marker_table tbody{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 300px;
+}
+.marker_table caption{
+  caption-side: top;
+  text-align: center;
+}
+.marker_table thead th:nth-child(n+2),
+.marker_table tbody td:nth-child(n+2){
+  text-align: center;
+}
+.geometka_block{
+  position: relative;
+}
+#table_buttons>div{
+  margin-bottom: 10px;
 }

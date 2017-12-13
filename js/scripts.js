@@ -11,6 +11,7 @@ function toggleDelButton() {
 function toggleDistButton() {
   if ($('#marker_tab input:radio[name="original"]:checked').length > 0 && $('#marker_tab input:radio[name="destination"]:checked').length > 0) {
     $('#table_buttons .distance_but input[name="distance"]').prop('disabled', false);
+    $('#table_buttons .distance_but input[name="dist_value"]').val('');
   } else {
     $('#table_buttons .distance_but input[name="distance"]').prop('disabled', true);
     $('#table_buttons .distance_but input[name="dist_value"]').val('');
@@ -22,7 +23,7 @@ function remMarkersList() {
   if ($('#marker_tab input:checkbox:checked').length > 0) {
     var arr = [];
     $('#marker_tab input:checkbox:checked').each(function () {
-      arr.push($(this).parent().attr('id'));
+      arr.push($(this).parent().parent().parent().attr('id'));
     });
     $.ajax({
       type: 'POST',

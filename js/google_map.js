@@ -74,14 +74,14 @@ function addMarkersToList() {
 
 //Request and output distance
 function distanceButton() {
-  if (($('#marker_tab input:radio[name="original"]:checked').length > 0) &&
-          ($('#marker_tab input:radio[name="destination"]:checked').length > 0)) {
-//    console.log($('#marker_tab input:radio[name="original"]:checked'));
+  if (($('#marker_tab tbody input:radio[name="original"]:checked').length > 0) &&
+          ($('#marker_tab tbody input:radio[name="destination"]:checked').length > 0)) {
+//    console.log($('#marker_tab tbody input:radio[name="original"]:checked').parent().parent().siblings('.latlng').children('.lat').text());
 //    console.log($('#marker_tab input:radio[name="destination"]:checked'));
-    var orig_lat = $('#marker_tab input:radio[name="original"]:checked').siblings('.lat').text();
-    var orig_lng = $('#marker_tab input:radio[name="original"]:checked').siblings('.lng').text();
-    var dest_lat = $('#marker_tab input:radio[name="destination"]:checked').siblings('.lat').text();
-    var dest_lng = $('#marker_tab input:radio[name="destination"]:checked').siblings('.lng').text();
+    var orig_lat = $('#marker_tab tbody input:radio[name="original"]:checked').parent().parent().siblings('.latlng').children('.lat').text();
+    var orig_lng = $('#marker_tab tbody input:radio[name="original"]:checked').parent().parent().siblings('.latlng').children('.lng').text();
+    var dest_lat = $('#marker_tab tbody input:radio[name="destination"]:checked').parent().parent().siblings('.latlng').children('.lat').text();
+    var dest_lng = $('#marker_tab tbody input:radio[name="destination"]:checked').parent().parent().siblings('.latlng').children('.lng').text();
     distanceRequest(orig_lat, orig_lng, dest_lat, dest_lng);
   } else {
     $('#table_buttons .distance_but input[name="dist_value"]').val('');
