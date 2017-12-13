@@ -9,9 +9,6 @@ html, body {
 h1{
   text-align: center;
 }
-/*.MainContainer{
-  height: 100%;
-}*/
 .centerAlign{
   width: 1000px;
   display: block;
@@ -25,9 +22,7 @@ h1{
   z-index: 5;
   background-color: #fff;
   padding: 5px;
-  /*border: 1px solid #999;*/
   text-align: center;
-  /*font-family: 'Roboto','sans-serif';*/
   font-size: 14px;
 }
 .marker_block{

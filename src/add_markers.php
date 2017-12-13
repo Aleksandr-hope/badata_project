@@ -2,11 +2,8 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/src/marker_output.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/rb-mysql.php';
 
-R::setup('mysql:host=127.0.0.1;dbname=badata_geo', 'root', '');
-if (!R::testConnection()) {
-  exit('No connection to DB.');
-}
-R::freeze( TRUE );
+require $_SERVER['DOCUMENT_ROOT'] . '/src/db_connect.php';
+db_connect_setup();
 
 if (isset($_POST['markers'])) {
   $arr = $_POST['markers'];
